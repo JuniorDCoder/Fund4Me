@@ -1,0 +1,23 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class CampaignTypeSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $campaignTypes = [
+            ['name' => 'Crowdfunding'],
+            ['name' => 'Voting'],
+            ['name' => 'Donation'],
+            ['name' => 'Investment'],
+            ['name' => 'Charity'],
+        ];
+    }
+}

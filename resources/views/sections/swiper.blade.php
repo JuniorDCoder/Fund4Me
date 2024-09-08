@@ -2,11 +2,7 @@
     <div class="swiper-wrapper">
         @foreach ($funds as $fund)
             <livewire:fund-card
-                :title="$fund['title']"
-                :amount="$fund['amount']"
-                :amountDonated="$fund['amountDonated']"
-                :category="$fund['category']"
-                :daysLeft="$fund['daysLeft']"
+                :fund="$fund"
                 wire:key="{{ $fund['id'] }}"
             />
         @endforeach

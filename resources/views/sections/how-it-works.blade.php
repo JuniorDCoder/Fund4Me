@@ -1,4 +1,4 @@
-<section class="py-12 sm:py-16 lg:py-20 xl:py-24">
+<section class="mb-12">
     <div class="mx-auto px-4">
         <div class="">
             <p class="text-sm font-bold uppercase tracking-widest text-gray-700">How It Works</p>

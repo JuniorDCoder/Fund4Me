@@ -6,17 +6,17 @@
             </a>
             <div class="flex items-center lg:order-2">
                 @if (!Auth::check())
-                    <a href="#" wire:navigate class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-600 focus:outline-none">START A CAMPAIGN</a>
+                    <a href="{{route('create_fund')}}" wire:navigate class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-blue-600 focus:outline-none">START A CAMPAIGN</a>
                 @else
                 <div class="relative inline-block text-left">
                     <button type="button" wire:click="toggleDropdown" class="flex items-center text-white bg-primary hover:bg-primary-light focus:ring-4 focus:ring-primary font-medium rounded-lg text-sm px-4 py-2 lg:px-5 lg:py-2.5 mr-2 focus:outline-none">
-                        <span class="mr-2">{{ Auth::user()->name }}</span>
+                        <span class="mr-2">{{ $userName }}</span>
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414L10 13.414l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
                     <div class="{{ $isDropdownOpen ? 'block' : 'hidden' }} absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-20">
-                        <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
+                        <a wire:navigate href="{{route('profile')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
                         <a wire:navigate href="{{ route('dashboard') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</a>
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"

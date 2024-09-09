@@ -16,7 +16,7 @@ class FundCard extends Component
     public $amountDonated;
 
 
-    public function mount($fund)
+    public function mount($fund): void
     {
         $this->fund = $fund;
         // Extract attributes from the fund object

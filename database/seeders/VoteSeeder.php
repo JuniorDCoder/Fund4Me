@@ -12,6 +12,5 @@ class VoteSeeder extends Seeder
      */
     public function run(): void
     {
-        //
     }
 }

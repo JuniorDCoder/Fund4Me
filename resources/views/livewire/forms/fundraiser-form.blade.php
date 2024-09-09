@@ -33,7 +33,7 @@
             @endforeach
 
         </div>
-        <div class="md:w-2/3">
+        <div class="md:w-2/3 md:px-0 px-7">
             <div class="w-full bg-white rounded-md">
                 <h2 class="text-3xl text-gray-800">Lets get Started</h2>
                 <form wire:submit.prevent='submit' class="flex flex-col gap-4 mt-6">
@@ -48,7 +48,7 @@
                         @endif
 
                         @if ($step < 4)
-                            <button type="button" class="w-[80px] text-white py-3 rounded-md bg-primary ml-auto" wire:click='incrementStep'>Next</button>
+                            <button type="button" class="w-[80px] text-white py-3 md:mb-0 mb-3 rounded-md bg-primary ml-auto" wire:click='incrementStep'>Next</button>
                         @else
                             <button type="submit" class="w-[80px] text-white py-3 rounded-md bg-primary ml-auto">Submit</button>
                         @endif

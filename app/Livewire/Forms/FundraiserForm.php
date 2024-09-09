@@ -4,6 +4,7 @@ namespace App\Livewire\Forms;
 
 use App\Models\Category;
 use App\Models\Fund;
+use Illuminate\View\View;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -30,22 +31,36 @@ class FundraiserForm extends Component
     public $step = 1;
 
     public $categories;
-    public function incrementStep()
+    public function incrementStep(): void
     {
         if ($this->step < 4) {
+            $this->validateEachStep();
             $this->step++;
         }
     }
-    public function decrementStep()
+
+    protected function validateEachStep(): void{
+        if($this->step == 1){
+            $this->validateOnly('target_amount');
+        }
+        if($this->step == 2){
+            $this->validateOnly('description');
+        }
+        if($this->step == 3){
+            $this->validateOnly('image_path');
+        }
+    }
+    public function decrementStep(): void
     {
         $this->step--;
     }
 
-    public function goToStep($step)
+    public function goToStep($step): void
     {
+        $this->validateEachStep();
         $this->step = $step;
     }
-    public function submit()
+    public function submit(): void
     {
         $this->validate();
 
@@ -71,7 +86,7 @@ class FundraiserForm extends Component
         // Redirect or additional logic
     }
 
-    public function render()
+    public function render(): View
     {
         $this->categories = Category::all();
         return view('livewire.forms.fundraiser-form', [

@@ -17,6 +17,7 @@
         </style>
         @vite('resources/css/app.css')
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     </head>
     <body class="">
         <livewire:header>
@@ -25,8 +26,9 @@
             </div>
 
         <livewire:footer>
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        @stack('scripts')
     </body>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    @stack('scripts')
 </html>

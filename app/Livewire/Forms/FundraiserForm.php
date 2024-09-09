@@ -17,9 +17,12 @@ class FundraiserForm extends Component
     public $title = 'New Fundraiser';
     #[Rule('required|string')]
     public $description;
-
-    #[Rule('required')]
-    public $category;
+    #[Rule('required|string')]
+    public $story;
+    #[Rule('required|string')]
+    public $currency = 'XAF';
+    #[Rule('required|numeric|min:1')]
+    public $category_id;
     #[Rule('required|numeric|min:1')]
     public $target_amount;
     #[Rule('nullable|numeric|min:0')]
@@ -44,7 +47,7 @@ class FundraiserForm extends Component
             $this->validateOnly('target_amount');
         }
         if($this->step == 2){
-            $this->validateOnly('description');
+            $this->validateOnly('story');
         }
         if($this->step == 3){
             $this->validateOnly('image_path');

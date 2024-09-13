@@ -32,8 +32,15 @@ class FundraiserForm extends Component
     #[Rule('required|boolean')]
     public $is_public;
     public $step = 1;
+    public $imagePreview;
 
     public $categories;
+
+    public function updatedImagePath()
+    {
+        $this->imagePreview = $this->image_path->temporaryUrl();
+    }
+
     public function incrementStep(): void
     {
         if ($this->step < 4) {
@@ -42,17 +49,19 @@ class FundraiserForm extends Component
         }
     }
 
-    protected function validateEachStep(): void{
-        if($this->step == 1){
+    protected function validateEachStep(): void
+    {
+        if ($this->step == 1) {
             $this->validateOnly('target_amount');
         }
-        if($this->step == 2){
+        if ($this->step == 2) {
             $this->validateOnly('story');
         }
-        if($this->step == 3){
+        if ($this->step == 3) {
             $this->validateOnly('image_path');
         }
     }
+
     public function decrementStep(): void
     {
         $this->step--;
@@ -63,6 +72,7 @@ class FundraiserForm extends Component
         $this->validateEachStep();
         $this->step = $step;
     }
+
     public function submit(): void
     {
         $this->validate();
@@ -77,7 +87,7 @@ class FundraiserForm extends Component
             'user_id' => auth()->id(),
             'title' => $this->title,
             'description' => $this->description,
-            'slug' => \Str::slug($this->title).'-'.\Str::random(5).auth()->id(),
+            'slug' => \Str::slug($this->title) . '-' . \Str::random(5) . auth()->id(),
             'target_amount' => $this->target_amount,
             'raised_amount' => $this->raised_amount ?? 0,
             'image_path' => $imageName ?? null,
@@ -96,8 +106,8 @@ class FundraiserForm extends Component
             'step' => $this->step,
             'categories' => $this->categories
         ])
-        ->extends('layouts.app')
-        ->section('content')
-        ->title('Create Fund - Fund4Me');
+            ->extends('layouts.app')
+            ->section('content')
+            ->title('Create Fund - Fund4Me');
     }
 }

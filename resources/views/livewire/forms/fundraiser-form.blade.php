@@ -45,6 +45,12 @@
                     @if ($step == 2)
                         @include('sections.create-fund.step-2')
                     @endif
+                    @if($step == 3)
+                        @include('sections.create-fund.step3')
+                    @endif
+                    @if($step == 4)
+                        @include('sections.create-fund.step4')
+                    @endif
                     <div class="flex justify-between mt-6 md:mb-0 mb-3 ">
                         @if ($step > 1)
                             <button type="button" class="w-[80px] text-white py-3 rounded-md bg-gray-400" wire:click='decrementStep'>Back</button>

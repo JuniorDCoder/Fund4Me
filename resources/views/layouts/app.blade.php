@@ -20,12 +20,18 @@
 
     </head>
     <body class="">
-        <livewire:header>
+        @if(Route::currentRouteName() == 'dashboard')
+            <livewire:side-bar />
+        @endif
+        @if(Route::currentRouteName() != 'dashboard')
+            <livewire:header />
+        @endif
+
             <div class="{{ Route::currentRouteName() !== 'login' ? 'container mx-auto md:max-w-screen-4xl' : '' }}">
                 @yield('content')
             </div>
 
-        <livewire:footer>
+        <livewire:footer />
         <!-- Swiper JS -->
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 

@@ -1,0 +1,25 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/devcontainers/features/php:1": {}
+  },
+  "options": {
+    "version": {
+            "type": "string",
+            "proposals": [
+                "latest",
+                "8",
+                "8.2",
+                "8.2.0",
+                "none"
+            ],
+            "default": "latest",
+            "description": "Select or enter a PHP version"
+        },
+        "installComposer": {
+            "type": "boolean",
+            "default": true,
+            "description": "Install PHP Composer?"
+        }
+  }
+}

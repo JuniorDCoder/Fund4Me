@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Attributes\On;
 
@@ -11,30 +12,30 @@ class Header extends Component
     public $isDropdownOpen = false;
     public $userName;
 
-    public function mount()
+    public function mount(): void
     {
         if(auth()->check()){
             $this->userName = auth()->user()->name;
         }
     }
 
-    public function toggleMenu()
+    public function toggleMenu(): void
     {
         $this->isMenuOpen = !$this->isMenuOpen;
     }
 
-    public function toggleDropdown()
+    public function toggleDropdown(): void
     {
         $this->isDropdownOpen = !$this->isDropdownOpen;
     }
 
     #[On('refresh-profile')]
-    public function refreshUserName()
+    public function refreshUserName(): void
     {
         $this->userName = auth()->user()->name;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.header');
     }

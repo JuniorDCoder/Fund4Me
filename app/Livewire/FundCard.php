@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\View\View;
 use Livewire\Component;
 
 class FundCard extends Component
@@ -14,6 +15,8 @@ class FundCard extends Component
     public $title;
     public $amount;
     public $amountDonated;
+    public $category;
+    public $daysLeft;
 
 
     public function mount($fund): void
@@ -30,7 +33,7 @@ class FundCard extends Component
         $this->daysLeft = $fund['days_left'];
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.fund-card');
     }

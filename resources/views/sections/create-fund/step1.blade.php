@@ -20,6 +20,7 @@
 <div class="flex flex-col gap-1">
     <label class="text-xl text-gray-800" for="description">Description <span class="text-red-400">*</span></label>
     <textarea name="" wire:model.live="description" class="p-3 my-1 border border-gray-200 rounded-md" id="description" cols="30" rows="10"></textarea>
+    @error('description') <span class="text-sm text-red-500">{{ $message }}</span> @enderror
 </div>
 <div class="flex flex-col gap-1">
     <label class="text-xl text-gray-800" for="currency">Currency <span class="text-sm italic text-gray-500">(Optional) Defaults to XAF</span></label>

@@ -27,9 +27,9 @@
             <livewire:header />
         @endif
 
-            <div class="{{ Route::currentRouteName() !== 'login' ? 'container mx-auto md:max-w-screen-4xl' : '' }}">
-                @yield('content')
-            </div>
+        <div class="{{ Route::currentRouteName() !== 'login' ? 'container mx-auto md:max-w-screen-4xl' : '' }}">
+            @yield('content')
+        </div>
 
         <livewire:footer />
         <!-- Swiper JS -->

@@ -14,7 +14,7 @@ class FundraiserForm extends Component
     use WithFileUploads;
 
     #[Rule('required|string|max:255')]
-    public $title = 'New Fundraiser';
+    public $title;
     #[Rule('required|string')]
     public $description;
     #[Rule('required|string')]
@@ -52,7 +52,7 @@ class FundraiserForm extends Component
     protected function validateEachStep(): void
     {
         if ($this->step == 1) {
-            $this->validateOnly('target_amount');
+            $this->validateOnly('description');
         }
         if ($this->step == 2) {
             $this->validateOnly('story');
